@@ -1,0 +1,95 @@
+{
+  "info": {
+    "_postman_id": "ac558abb-1d2a-4372-af57-3c160f6e0d96",
+    "name": "Predictive Maintenance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48651971",
+    "_collection_link": "https://go.postman.co/collection/48651971-ac558abb-1d2a-4372-af57-3c160f6e0d96?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/health",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Predict Machine Failure - Valid Input",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Type\": \"M\",\n  \"Air temperature [K]\": 300.1,\n  \"Process temperature [K]\": 310.2,\n  \"Rotational speed [rpm]\": 1500,\n  \"Torque [Nm]\": 40.0,\n  \"Tool wear [min]\": 100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/predict",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "predict"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Predict Machine Failure - Invalid Input",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Type\": \"M\",\n  \"Air temperature [K]\": 300.1,\n  \"Process temperature [K]\": 310.2,\n  \"Rotational speed [rpm]\": 1500,\n  \"Torque [Nm]\": \"hello\",\n  \"Tool wear [min]\": 100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/predict",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "predict"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
